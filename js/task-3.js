@@ -1,12 +1,12 @@
-function getElementWidth(content, padding, border) {
-  const box = Number.parseInt(content);
-  const pad = Number.parseInt(padding);
-  const bor = Number.parseFloat(border);
-  return box + pad * 2 + bor * 2;
-}
+const nameInput = document.querySelector("input#name-input");
+const nameOutput = document.querySelector("span#name-output");
 
-getElementWidth();
+nameInput.addEventListener("input", function () {
+  const trimmedValue = nameInput.value.trim();
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+  if (trimmedValue === "") {
+    nameOutput.textContent = "Anonymous";
+  } else {
+    nameOutput.textContent = trimmedValue;
+  }
+});
